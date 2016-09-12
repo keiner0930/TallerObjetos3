@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import clases.Complejo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sony
@@ -30,17 +33,14 @@ public class Principal3 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtReal1 = new javax.swing.JTextField();
-        cmbSignos1 = new javax.swing.JComboBox<>();
         txtImaginario1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbOperaciones = new javax.swing.JComboBox<>();
         txtReal2 = new javax.swing.JTextField();
-        cmbSignos2 = new javax.swing.JComboBox<>();
         txtImaginario2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtReal3 = new javax.swing.JTextField();
-        cmbSignos3 = new javax.swing.JComboBox<>();
         txtImaginario3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         cmdLimpiar = new javax.swing.JButton();
@@ -52,64 +52,191 @@ public class Principal3 extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Traditional Arabic", 3, 24)); // NOI18N
         jLabel1.setText("Operaciones con Numeros Complejos");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 420, -1));
-        jPanel1.add(txtReal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 40, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 420, -1));
 
-        cmbSignos1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
-        jPanel1.add(cmbSignos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
-        jPanel1.add(txtImaginario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 40, 30));
+        txtReal1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtReal1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtReal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 40, 30));
+
+        txtImaginario1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtImaginario1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtImaginario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 40, 30));
 
         jLabel2.setFont(new java.awt.Font("Traditional Arabic", 1, 24)); // NOI18N
         jLabel2.setText("i");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 10, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 10, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Resta", "Multiplicacion", "Division" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
-        jPanel1.add(txtReal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 40, 30));
+        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Resta", "Multiplicacion", "Division" }));
+        jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
 
-        cmbSignos2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
-        jPanel1.add(cmbSignos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, -1));
-        jPanel1.add(txtImaginario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 40, 30));
+        txtReal2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtReal2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtReal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 40, 30));
+
+        txtImaginario2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtImaginario2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtImaginario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 40, 30));
 
         jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 24)); // NOI18N
         jLabel3.setText("i");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 10, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 10, 30));
 
         jLabel4.setText("Resultado =");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         txtReal3.setEditable(false);
-        jPanel1.add(txtReal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 40, 30));
-
-        cmbSignos3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-" }));
-        jPanel1.add(cmbSignos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, -1, -1));
+        jPanel1.add(txtReal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 40, 30));
 
         txtImaginario3.setEditable(false);
-        jPanel1.add(txtImaginario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 40, 30));
+        jPanel1.add(txtImaginario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 40, 30));
 
         jLabel5.setFont(new java.awt.Font("Traditional Arabic", 1, 24)); // NOI18N
         jLabel5.setText("i");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 10, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 10, 30));
 
         cmdLimpiar.setText("Limpiar");
-        jPanel1.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 70, -1));
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 70, -1));
 
         cmdCalcular.setText("Calcular");
-        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        int op, r1, r2, i1, i2;
+        Complejo c1, c2, c3 = null;
+
+        if (txtReal1.getText().isEmpty()) {
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(this, "Digite El Numero Real 1", "Error", JOptionPane.ERROR_MESSAGE);
+            txtReal1.requestFocusInWindow();
+        } else if (txtImaginario1.getText().isEmpty()) {
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(this, "Digite El Numero Imaginario 1", "Error", JOptionPane.ERROR_MESSAGE);
+            txtImaginario1.requestFocusInWindow();
+        } else if (txtReal2.getText().isEmpty()) {
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(this, "Digite El Numero Real 2", "Error", JOptionPane.ERROR_MESSAGE);
+            txtReal2.requestFocusInWindow();
+        } else if (txtImaginario2.getText().isEmpty()) {
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(this, "Digite El Numero Imaginario 2", "Error", JOptionPane.ERROR_MESSAGE);
+            txtImaginario2.requestFocusInWindow();
+        } else {
+
+            op = cmbOperaciones.getSelectedIndex();
+
+            r1 = Integer.parseInt((txtReal1).getText());
+            r2 = Integer.parseInt((txtReal2).getText());
+            i1 = Integer.parseInt((txtImaginario1).getText());
+            i2 = Integer.parseInt((txtImaginario2).getText());
+
+            c1 = new Complejo(r1, i1);
+            c2 = new Complejo(r2, i2);
+
+            switch (op) {
+                case 0:
+                    c3 = c1.sumar(c2);
+
+                    break;
+
+                case 1:
+                    c3 = c1.restar(c2);
+                    break;
+
+                case 2:
+                    c3 = c1.multiplicar(c2);
+                    break;
+
+                case 3:
+                    c3 = c1.dividir(c2);
+                    break;
+
+            }
+            txtImaginario3.setText("" + c3.getImaginario());
+            txtReal3.setText("" + c3.getReal());
+        }
+    }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+    txtImaginario1.setText("");
+    txtImaginario2.setText("");
+    txtImaginario3.setText("");
+    txtReal1.setText("");
+    txtReal2.setText("");
+    txtReal3.setText("");
+    txtReal1.requestFocusInWindow();
+        
+        
+        
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
+
+    private void txtReal1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtReal1KeyTyped
+     char c=evt.getKeyChar();
+          if(!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar()!='-'){ 
+              getToolkit().beep(); 
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtReal1KeyTyped
+
+    private void txtImaginario1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtImaginario1KeyTyped
+    char c=evt.getKeyChar();
+          if(!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar()!='-'){ 
+              getToolkit().beep(); 
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtImaginario1KeyTyped
+
+    private void txtReal2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtReal2KeyTyped
+    char c=evt.getKeyChar();
+          if(!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar()!='-'){ 
+              getToolkit().beep(); 
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtReal2KeyTyped
+
+    private void txtImaginario2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtImaginario2KeyTyped
+    char c=evt.getKeyChar();
+          if(!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar()!='-'){ 
+              getToolkit().beep(); 
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtImaginario2KeyTyped
 
     /**
      * @param args the command line arguments
@@ -147,12 +274,9 @@ public class Principal3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmbSignos1;
-    private javax.swing.JComboBox<String> cmbSignos2;
-    private javax.swing.JComboBox<String> cmbSignos3;
+    private javax.swing.JComboBox<String> cmbOperaciones;
     private javax.swing.JButton cmdCalcular;
     private javax.swing.JButton cmdLimpiar;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
